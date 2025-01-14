@@ -2,7 +2,7 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 
 // Components...................
-
+import Navbar from '../../components/Navbar'
 
 // Pages.........................
 import Home from '../Home'
@@ -53,6 +53,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <Navbar />
     </BrowserRouter>
   )
 }
