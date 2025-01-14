@@ -4,8 +4,6 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 
-
-
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -66,10 +64,6 @@ const Navbar = () => {
                     </NavLink>
                 </li>
             </ul>
-            {/* <button className="nav__toggle-btn">
-                <FaBarsStaggered />
-                <IoMdClose />
-            </button> */}
 
             <button className="text-2xl z-20 lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                 {isOpen ? <IoMdClose /> : <FaBarsStaggered />}
