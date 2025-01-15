@@ -1,8 +1,11 @@
+import Layout from "../../components/Layout"
 
 
 const Logout = () => {
     return (
-        <div>Logout</div>
+        <Layout>
+            Logout
+        </Layout>
     )
 }
 

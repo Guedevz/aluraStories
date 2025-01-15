@@ -1,8 +1,11 @@
+import Layout from "../../components/Layout"
 
 
 const PostDetail = () => {
     return (
-        <div>PostDetail</div>
+        <Layout>
+            PostDetail
+        </Layout>
     )
 }
 

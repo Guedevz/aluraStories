@@ -1,8 +1,10 @@
-
+import Layout from "../../components/Layout"
 
 const AuthorPosts = () => {
     return (
-        <div>AuthorPosts</div>
+        <Layout>
+            AuthorPosts
+        </Layout>
     )
 }
 

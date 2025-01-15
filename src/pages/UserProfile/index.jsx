@@ -1,8 +1,11 @@
+import Layout from "../../components/Layout"
 
 
 const UserProfile = () => {
     return (
-        <div>UserProfile</div>
+        <Layout>
+            UserProfile
+        </Layout>
     )
 }
 

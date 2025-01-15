@@ -1,8 +1,11 @@
+import Layout from "../../components/Layout"
 
 
 const EditPost = () => {
     return (
-        <div>EditPost</div>
+        <Layout>
+            EditPost
+        </Layout>
     )
 }
 
