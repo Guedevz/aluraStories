@@ -5,10 +5,6 @@ const MasonryLayout = () => {
     return (
         <div className="masonry">
             <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
         </div>
     );
 };
