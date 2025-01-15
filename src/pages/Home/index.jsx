@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Layout from "../../components/Layout";
-import MasonryLayout from "../../components/Card";
+import Layout from '../../components/Layout';
+import Card from '../../components/Card';
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -16,9 +16,11 @@ const Home = () => {
         <Layout>
             Home
             <div className="masonry-container">
-                {items.map((item) => (
-                    <MasonryLayout key={item.id} item={item} />
-                ))}
+                {
+                    items?.map((item) => (
+                        <Card key={item.id} data={item} />
+                    ))
+                }
             </div>
         </Layout>
     );
