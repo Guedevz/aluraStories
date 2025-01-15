@@ -43,7 +43,7 @@
 /* ==============================  SIZE  ============================== */
 
     --heading-h1:       clamp(2rem, 4vw, 3rem);
-    --heading-h2:       clamp(1.8rem, 3vw, 2.5rem);
+    --heading-h2:       clamp(1.5rem, 3vw, 2rem);
     --subtitle-h5:      clamp(1.2rem, 2vw, 1.6rem);
     --font-size:        clamp(1rem, 2vw, 1.4rem);
 

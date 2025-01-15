@@ -12,3 +12,9 @@ h1 {
     font-size: var(--heading-h1);
     font-weight: var(--font-weight-bold);
 }
+
+h2 {
+    font-size: var(--heading-h2);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-bold);
+}
