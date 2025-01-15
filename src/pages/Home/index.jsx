@@ -1,11 +1,11 @@
 import Layout from "../../components/Layout"
-import Card from "../../components/Card"
+import MasonryLayout from "../../components/Card"
 
 const Home = () => {
     return (
         <Layout>
             HOME
-            <Card />
+            <MasonryLayout />
         </Layout>
     )
 }
