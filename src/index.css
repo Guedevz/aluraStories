@@ -27,7 +27,7 @@ h2 {
     padding: 1rem;
 }
 
-.container__card > * {
+.card {
     break-inside: avoid;
     margin-bottom: 1rem;
 }

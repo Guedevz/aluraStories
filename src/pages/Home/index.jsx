@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <Layout>
             Home
-            <div className="masonry-container">
+            <div className="container__card">
                 {
                     items?.map((item) => (
                         <Card key={item.id} data={item} />

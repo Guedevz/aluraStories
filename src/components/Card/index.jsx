@@ -7,7 +7,7 @@ const Card = (data) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     return (
-        <div className='container__card'>
+        <div className='card'>
             <div className='bg-white cursor-pointer rounded-lg shadow-gray-200 shadow-xl'>
                 <figure className='relative'>
                     <img className='rounded-tl-2xl rounded-tr-2xl w-full object-contain' src={data.data.image} />
