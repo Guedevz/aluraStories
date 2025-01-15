@@ -10,11 +10,11 @@ const Navbar = () => {
     const activeStyle = 'underline underline-offset-8 font-medium text-indigo-700 text-2xl'
 
     return (
-        <nav className="flex justify-between items-center fixed z-10 w-full py-8 px-16">
+        <nav className="flex justify-between items-center fixed z-10 w-full py-8 px-16 top-0">
             <h1>
                 <span className="text-indigo-400">alura</span>Stories.
             </h1>
-            <ul className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-12 p-8 transform transition-transform duration-300 lg:static lg:flex lg:flex-row lg:h-auto lg:p-0 lg:translate-x-0 lg:flex-end ${isOpen ? "translate-x-0" : "-translate-x-full"}`} >
+            <ul className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-12 p-8 transform transition-transform duration-300 lg:static lg:flex lg:flex-row lg:h-auto lg:p-0 lg:translate-x-0 lg:justify-end ${isOpen ? "translate-x-0" : "-translate-x-full"}`} >
                 <li>
                     <NavLink
                         to='/'
