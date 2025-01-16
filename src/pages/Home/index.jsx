@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
+import Filters from "../../components/Filters";
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
     return (
         <Layout>
             Home
+            <Filters />
             <div className="container__card">
                 {
                     items?.map((item) => (
