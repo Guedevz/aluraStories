@@ -5,7 +5,6 @@ import { IoClose } from "react-icons/io5";
 const PostDetail = () => {
 
     const context = useContext(PostContext)
-    console.log('PRODUCT TO SHOW:', context.postToShow)
 
     return (
         <aside className={`${context.isPostDetailOpen ? 'flex' : 'hidden'}
@@ -16,7 +15,7 @@ const PostDetail = () => {
                         <button className='py-4 px-10 text-2xl rounded-lg text-white  bg-indigo-400'>Edit</button>
                         <button className='py-4 px-10 text-2xl rounded-lg text-white  bg-red-500'>Delete</button>
                     </div>
-                        <button className='p-2 bg-indigo-500 text-3xl text-white rounded-full'>
+                        <button className='p-2 bg-indigo-500 text-3xl text-white rounded-full' onClick={()=> context.closePostDetail()}>
                             <IoClose />
                         </button>
                 </div>
