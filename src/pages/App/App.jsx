@@ -1,9 +1,9 @@
 // Router.......................
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { PostProvider } from '../../context'
 
 // Components...................
 import Navbar from '../../components/Navbar'
-import FavoritesPostProvider from '../../context'
 
 // Pages.........................
 import Home from '../Home'
@@ -18,7 +18,7 @@ import Favorites from '../Favorites'
 import Logout from '../Logout'
 import MyAccount from '../MyAccount'
 import NotFound from '../NotFound'
-import PostDetail from '../PostDetail'
+// import PostDetail from '../PostDetail'
 import Register from '../Register'
 import SignIn from '../SignIn'
 import UserProfile from '../UserProfile'
@@ -40,7 +40,7 @@ const AppRoutes = () => {
     { path: '/favorites', element: <Favorites /> },
     { path: '/logout', element: <Logout /> },
     { path: '/my-account', element: <MyAccount /> },
-    { path: '/posts/:id', element: <PostDetail /> },
+    // { path: '/posts/:id', element: <PostDetail /> },
     { path: '/register', element: <Register /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/profile/:id', element: <UserProfile /> },
@@ -52,12 +52,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <FavoritesPostProvider>
+    <PostProvider>
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
       </BrowserRouter>
-    </FavoritesPostProvider>
+    </PostProvider>
   )
 }
 

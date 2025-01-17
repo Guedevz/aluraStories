@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { PostContext } from '../../context'
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 
 const Card = (data) => {
 
+    const context = useContext(PostContext)
     const [isFavorite, setIsFavorite] = useState(false);
 
+    const showPost = (PostDetail) => {
+        context.openPostDetail()
+        context.setPostToShow(PostDetail)
+    }
+
     return (
-        <div className='card'>
+        <div className='card' onClick={() => showPost(data.data)}>
             <div className='bg-white cursor-pointer rounded-lg shadow-gray-200 shadow-xl'>
                 <figure className='relative'>
                     <img className='rounded-tl-2xl rounded-tr-2xl w-full object-contain' src={data.data.image} />
@@ -25,7 +32,6 @@ const Card = (data) => {
                     <p className='mt-14 text-base flex justify-between text-gray-700'>
                         <span>{data.data.date}</span>
                         <span>{data.data.read}</span>
-                        <span>{data.data.views}</span>
                     </p>
                 </div>
             </div>

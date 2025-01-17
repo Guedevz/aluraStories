@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Filters from "../../components/Filters";
+import PostDetail from "../../components/PostDetail";
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -24,6 +25,7 @@ const Home = () => {
                     ))
                 }
             </div>
+            <PostDetail />
         </Layout>
     );
 };

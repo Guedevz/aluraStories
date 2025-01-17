@@ -1,18 +1,33 @@
-import { createContext } from 'react';
-import PropTypes from 'prop-types';
+import { createContext, useState } from 'react'
+import PropTypes from 'prop-types'
 
-const FavoritesPostContext = createContext();
+export const PostContext = createContext();
 
-const FavoritesPostProvider = ({ children }) => {
+export const PostProvider = ({children}) => {
+
+    // Post Detail | Open - Close
+    const [isPostDetailOpen, setIsPostDetailOpen] = useState(false)
+    const openPostDetail = () => setIsPostDetailOpen(true)
+    const closePostDetail = () => setIsPostDetailOpen(false)
+
+    // Post Detail | Show Post
+    const [postToShow, setPostToShow] = useState({})
+
+
     return (
-        <FavoritesPostContext.Provider value={{}}>
+        <PostContext.Provider value={{
+            openPostDetail,
+            closePostDetail,
+            isPostDetailOpen,
+            postToShow,
+            setPostToShow
+        }}>
             {children}
-        </FavoritesPostContext.Provider>
-    );
-};
+        </PostContext.Provider>
+    )
+}
 
-FavoritesPostProvider.propTypes = {
+PostProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default FavoritesPostProvider;
