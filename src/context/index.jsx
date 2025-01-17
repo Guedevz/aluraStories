@@ -1,11 +1,27 @@
-import { createContext } from 'react';
-import PropTypes from 'prop-types';
+import { createContext, useState } from 'react'
+import PropTypes from 'prop-types'
 
-const PostContext = createContext();
+export const PostContext = createContext();
 
 export const PostProvider = ({children}) => {
+
+    // Post Detail | Open - Close
+    const [isPostDetailOpen, setIsPostDetailOpen] = useState(false)
+    const openPostDetail = () => setIsPostDetailOpen(true)
+    const closePostDetail = () => setIsPostDetailOpen(false)
+
+    // Post Detail | Show Post
+    const [postToShow, setPostToShow] = useState({})
+
+
     return (
-        <PostContext.Provider>
+        <PostContext.Provider value={{
+            openPostDetail,
+            closePostDetail,
+            isPostDetailOpen,
+            postToShow,
+            setPostToShow
+        }}>
             {children}
         </PostContext.Provider>
     )
