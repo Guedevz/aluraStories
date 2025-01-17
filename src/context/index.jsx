@@ -1,18 +1,17 @@
 import { createContext } from 'react';
 import PropTypes from 'prop-types';
 
-const FavoritesPostContext = createContext();
+const PostContext = createContext();
 
-const FavoritesPostProvider = ({ children }) => {
+export const PostProvider = ({children}) => {
     return (
-        <FavoritesPostContext.Provider value={{}}>
+        <PostContext.Provider>
             {children}
-        </FavoritesPostContext.Provider>
-    );
-};
+        </PostContext.Provider>
+    )
+}
 
-FavoritesPostProvider.propTypes = {
+PostProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default FavoritesPostProvider;
