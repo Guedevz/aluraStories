@@ -3,6 +3,7 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 
 // Components...................
 import Navbar from '../../components/Navbar'
+import FavoritesPostProvider from '../../context'
 
 // Pages.........................
 import Home from '../Home'
@@ -51,10 +52,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
-    </BrowserRouter>
+    <FavoritesPostProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </FavoritesPostProvider>
   )
 }
 
