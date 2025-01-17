@@ -1,10 +1,12 @@
-import Layout from "../../components/Layout"
+import Layout from "../Layout"
 
 
 const PostDetail = () => {
     return (
         <Layout>
-            PostDetail
+            <aside className="w-full blur-2xl bg-black ">
+
+            </aside>
         </Layout>
     )
 }

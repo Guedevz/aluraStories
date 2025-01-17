@@ -18,7 +18,7 @@ import Favorites from '../Favorites'
 import Logout from '../Logout'
 import MyAccount from '../MyAccount'
 import NotFound from '../NotFound'
-import PostDetail from '../PostDetail'
+// import PostDetail from '../PostDetail'
 import Register from '../Register'
 import SignIn from '../SignIn'
 import UserProfile from '../UserProfile'
@@ -40,7 +40,7 @@ const AppRoutes = () => {
     { path: '/favorites', element: <Favorites /> },
     { path: '/logout', element: <Logout /> },
     { path: '/my-account', element: <MyAccount /> },
-    { path: '/posts/:id', element: <PostDetail /> },
+    // { path: '/posts/:id', element: <PostDetail /> },
     { path: '/register', element: <Register /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/profile/:id', element: <UserProfile /> },
