@@ -1,9 +1,9 @@
 // Router.......................
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { PostProvider } from '../../context'
 
 // Components...................
 import Navbar from '../../components/Navbar'
-import FavoritesPostProvider from '../../context'
 
 // Pages.........................
 import Home from '../Home'
@@ -52,12 +52,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <FavoritesPostProvider>
+    <PostProvider>
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
       </BrowserRouter>
-    </FavoritesPostProvider>
+    </PostProvider>
   )
 }
 
