@@ -1,31 +1,64 @@
-import { createContext, useState } from 'react'
-import PropTypes from 'prop-types'
+import { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export const PostContext = createContext();
 
-export const PostProvider = ({children}) => {
-
+export const PostProvider = ({ children }) => {
     // Post Detail | Open - Close
-    const [isPostDetailOpen, setIsPostDetailOpen] = useState(false)
-    const openPostDetail = () => setIsPostDetailOpen(true)
-    const closePostDetail = () => setIsPostDetailOpen(false)
+    const [isPostDetailOpen, setIsPostDetailOpen] = useState(false);
+    const openPostDetail = () => setIsPostDetailOpen(true);
+    const closePostDetail = () => setIsPostDetailOpen(false);
 
     // Post Detail | Show Post
-    const [postToShow, setPostToShow] = useState({})
+    const [postToShow, setPostToShow] = useState({});
 
+    // Favorites Posts | Add Post to favorites
+    const [postFavorites, setPostFavorites] = useState([]);
+
+    // Cargar los favoritos desde el almacenamiento local si existen
+    useEffect(() => {
+        const storedFavorites = JSON.parse(localStorage.getItem('postFavorites')) || [];
+        setPostFavorites(storedFavorites);
+    }, []);
+
+    // Guardar los favoritos en el almacenamiento local cada vez que cambien
+    useEffect(() => {
+        if (postFavorites.length > 0) {
+            localStorage.setItem('postFavorites', JSON.stringify(postFavorites));
+        }
+    }, [postFavorites]);
+
+    // Función para agregar o eliminar de favoritos
+    const toggleFavorite = (post) => {
+        const isAlreadyFavorite = postFavorites.some((favorite) => favorite.id === post.id);
+
+        if (isAlreadyFavorite) {
+            // Eliminar de favoritos
+            const updatedFavorites = postFavorites.filter((favorite) => favorite.id !== post.id);
+            setPostFavorites(updatedFavorites);
+        } else {
+            // Agregar a favoritos
+            setPostFavorites([...postFavorites, post]);
+        }
+    };
 
     return (
-        <PostContext.Provider value={{
-            openPostDetail,
-            closePostDetail,
-            isPostDetailOpen,
-            postToShow,
-            setPostToShow
-        }}>
+        <PostContext.Provider
+            value={{
+                openPostDetail,
+                closePostDetail,
+                isPostDetailOpen,
+                postToShow,
+                setPostToShow,
+                postFavorites,
+                setPostFavorites,
+                toggleFavorite, // Exportar la función toggleFavorite
+            }}
+        >
             {children}
         </PostContext.Provider>
-    )
-}
+    );
+};
 
 PostProvider.propTypes = {
     children: PropTypes.node.isRequired,
