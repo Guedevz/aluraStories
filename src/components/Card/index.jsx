@@ -33,7 +33,6 @@ const Card = (data) => {
             setIsFavorite(true);
         }
 
-        console.log('FAVORITE:', context.postFavorites);
     };
 
     // Usamos useEffect para sincronizar el estado de favoritos con el contexto

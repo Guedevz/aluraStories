@@ -42,6 +42,15 @@ export const PostProvider = ({ children }) => {
         }
     };
 
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("https://6787dbc8c4a42c9161088673.mockapi.io/api/v1/posts")
+            .then((response) => response.json())
+            .then((data) => setItems(data))
+            .catch((error) => console.error("Error fetching data:", error));
+    }, []);
+
     return (
         <PostContext.Provider
             value={{
@@ -52,7 +61,9 @@ export const PostProvider = ({ children }) => {
                 setPostToShow,
                 postFavorites,
                 setPostFavorites,
-                toggleFavorite, // Exportar la función toggleFavorite
+                toggleFavorite,
+                items,
+                setItems,
             }}
         >
             {children}
