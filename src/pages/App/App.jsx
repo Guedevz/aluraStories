@@ -9,7 +9,7 @@ import Navbar from '../../components/Navbar'
 import Home from '../Home'
 import Authors from '../Authors'
 import AuthorPosts from '../AuthorPosts'
-import CategoryPosts from '../CategoryPosts'
+// import CategoryPosts from '../CategoryPosts'
 import CreatePosts from '../CreatePosts'
 import Dashboard from '../Dashboard'
 import DeletePost from '../DeletePost'
@@ -32,7 +32,7 @@ const AppRoutes = () => {
     { path: '/', element: <Home /> },
     { path: '/authors', element: <Authors /> },
     { path: '/posts/user/:id', element: <AuthorPosts /> },
-    { path: '/posts/categories/:category', element: <CategoryPosts /> },
+    // { path: '/posts/categories/:category', element: <CategoryPosts /> },
     { path: '/create-posts', element: <CreatePosts /> },
     { path: '/my-posts/:id', element: <Dashboard /> },
     { path: '/posts/:id/delete', element: <DeletePost /> },
@@ -44,6 +44,12 @@ const AppRoutes = () => {
     { path: '/register', element: <Register /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/profile/:id', element: <UserProfile /> },
+    { path: '/web-development', element: <Home /> },
+    { path: '/data-science', element: <Home /> },
+    { path: '/marketing', element: <Home /> },
+    { path: '/digital-content', element: <Home /> },
+    { path: '/blockchain-web3', element: <Home /> },
+    { path: '/cybersecurity', element: <Home /> },
     { path: '/*', element: <NotFound /> },
   ])
 
