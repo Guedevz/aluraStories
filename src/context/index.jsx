@@ -64,7 +64,6 @@ export const PostProvider = ({ children }) => {
     }
 
     const filteredItemsByCategory = (items, searchByCategory) => {
-        console.log('items: ', items)
         return items?.filter(item => item.tag.toLowerCase().includes(searchByCategory.toLowerCase()))
     }
 
@@ -93,8 +92,6 @@ export const PostProvider = ({ children }) => {
         if(!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
         if(searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
     }, [items, searchByTitle, searchByCategory]);
-
-    console.log('filteredItems: ', filteredItems)
 
     return (
         <PostContext.Provider

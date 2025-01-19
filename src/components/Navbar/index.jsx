@@ -38,13 +38,6 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink
-                        to='/authors'
-                        className={({ isActive}) => isActive ? activeStyle : undefined } onClick={() => setIsOpen(false)}>
-                            Authors
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
                         to='/sign-in'
                         className={({ isActive}) => isActive ? activeStyle : undefined } onClick={() => setIsOpen(false)}>
                             Sign In
