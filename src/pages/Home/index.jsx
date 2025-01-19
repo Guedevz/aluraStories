@@ -10,7 +10,7 @@ const Home = () => {
 const context = useContext(PostContext);
 
 const renderView = () => {
-    const itemsToRender = context.searchByTitle?.length > 0
+    const itemsToRender = context.filteredItems?.length > 0
         ? context.filteredItems
         : context.items;
 
