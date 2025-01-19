@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { PostContext } from '../../context';
 
 const Filters = () => {
+    const context = useContext(PostContext);
     const activeStyle = 'underline underline-offset-8 font-medium text-indigo-700 text-2xl';
 
     return (
@@ -9,6 +12,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/'
+                        onClick={() => context.setSearchByCategory()}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         All
@@ -17,6 +21,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/web-development'
+                        onClick={() => context.setSearchByCategory('web development')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Web Development
@@ -25,6 +30,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/data-science'
+                        onClick={() => context.setSearchByCategory('data science')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Data Science
@@ -33,6 +39,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/marketing'
+                        onClick={() => context.setSearchByCategory('marketing')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Marketing
@@ -41,6 +48,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/digital-content'
+                        onClick={() => context.setSearchByCategory('digital content')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Digital Content
@@ -49,6 +57,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/blockchain-web3'
+                        onClick={() => context.setSearchByCategory('blockchain and web3')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Blockchain and Web3
@@ -57,6 +66,7 @@ const Filters = () => {
                 <li className='whitespace-nowrap'>
                     <NavLink
                         to='/cybersecurity'
+                        onClick={() => context.setSearchByCategory('cybersecurity')}
                         className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         Cybersecurity
