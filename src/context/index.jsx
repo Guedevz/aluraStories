@@ -42,7 +42,12 @@ export const PostProvider = ({ children }) => {
         }
     };
 
-    const [items, setItems] = useState([]);
+    //Get Posts
+    const [items, setItems] = useState(null);
+    const [filteredItems, setFilteredItems] = useState(null);
+
+    //Get Title
+    const [searchByTitle, setSearchByTitle] = useState(null);
 
     useEffect(() => {
         fetch("https://6787dbc8c4a42c9161088673.mockapi.io/api/v1/posts")
@@ -50,6 +55,14 @@ export const PostProvider = ({ children }) => {
             .then((data) => setItems(data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+
+    useEffect(() => {
+        if(searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+    }, [items, searchByTitle]);
 
     return (
         <PostContext.Provider
@@ -64,6 +77,9 @@ export const PostProvider = ({ children }) => {
                 toggleFavorite,
                 items,
                 setItems,
+                searchByTitle,
+                setSearchByTitle,
+                filteredItems,
             }}
         >
             {children}

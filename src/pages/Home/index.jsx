@@ -9,6 +9,20 @@ const Home = () => {
 
 const context = useContext(PostContext);
 
+const renderView = () => {
+    const itemsToRender = context.searchByTitle?.length > 0
+        ? context.filteredItems
+        : context.items;
+
+    if (itemsToRender?.length > 0) {
+        return itemsToRender.map(item => (
+        <Card key={item.id} data={item} />
+        ));
+    } else {
+        return <div style={{ fontSize: "clamp(1.2rem, 4vw, 1.8rem)", fontWeight: "bold"}} className='text-center w-full text-gray-500'>No Results Found</div>;
+    }
+};
+
     return (
         <Layout>
             <div className='flex flex-col justify-center items-center gap-6 px-5 text-center'>
@@ -17,14 +31,11 @@ const context = useContext(PostContext);
                     Stay updated with the latest posts about technology.
                 </p>
             </div>
-            <input type="text" placeholder="Search a post" className='rounded-lg border-2 border-indigo-400 w-[30rem] p-4 mt-28 focus:outline-none'/>
+            <input type="text" placeholder="Search a post" className='rounded-lg border-2 border-indigo-400 w-[30rem] p-4 mt-28 focus:outline-none'
+            onChange={(event) => context.setSearchByTitle(event.target.value)}/>
             <Filters />
             <div className="container__card">
-                {
-                    context.items?.map((item) => (
-                        <Card key={item.id} data={item} />
-                    ))
-                }
+                {renderView()}
             </div>
             <PostDetail />
         </Layout>
