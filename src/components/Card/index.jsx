@@ -38,7 +38,7 @@ const Card = (data) => {
     // Usamos useEffect para sincronizar el estado de favoritos con el contexto
     useEffect(() => {
         setIsFavorite(checkFavoriteStatus());
-    }, [context.postFavorites, data.data.id]); // Solo se ejecuta cuando postFavorites o el id de la card cambia
+    }, [context.postFavorites, data.data.id]);
 
     return (
         <div className="card" onClick={() => showPost(data.data)}>

@@ -4,7 +4,7 @@ const Filters = () => {
     const activeStyle = 'underline underline-offset-8 font-medium text-indigo-700 text-2xl';
 
     return (
-        <nav className='flex justify-center items-center w-full py-24 px-12 text-gray-500'>
+        <nav className='flex justify-center items-center w-full pt-12 pb-24 px-12 text-gray-500'>
             <ul className='flex flex-wrap justify-center gap-12'>
                 <li className='whitespace-nowrap'>
                     <NavLink
