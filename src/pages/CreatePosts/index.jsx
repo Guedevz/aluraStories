@@ -168,9 +168,15 @@ const CreatePosts = () => {
                         type="text"
                         id="read"
                         name="read"
-                        value={formData.read}
-                        onChange={handleInputChange}
-                        placeholder="Example: 5 MINS READ"
+                        value={formData.read.replace(' MINS READ', '')}
+                        onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, '');
+                            setFormData((prevData) => ({
+                                ...prevData,
+                                read: `${value} MINS READ`,
+                            }));
+                        }}
+                        placeholder="Ejemplo: 5"
                         required
                     />
                 </div>
