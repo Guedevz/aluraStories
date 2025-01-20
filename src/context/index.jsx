@@ -83,7 +83,6 @@ export const PostProvider = ({ children }) => {
         if (!searchType) {
             return items
         }
-
     }
 
     useEffect(() => {
@@ -112,6 +111,20 @@ export const PostProvider = ({ children }) => {
         }
     };
 
+    // Función para actualizar un post
+    const updatePost = (updatedPost) => {
+        setItems((prevItems) => 
+            prevItems.map(post => 
+                post.id === updatedPost.id ? updatedPost : post
+            )
+        );
+        setFilteredItems((prevFilteredItems) => 
+            prevFilteredItems.map(post => 
+                post.id === updatedPost.id ? updatedPost : post
+            )
+        );
+    };
+
     return (
         <PostContext.Provider
             value={{
@@ -130,7 +143,8 @@ export const PostProvider = ({ children }) => {
                 filteredItems,
                 searchByCategory,
                 setSearchByCategory,
-                deletePost,  // Añadir la función deletePost aquí
+                deletePost,  // Función para eliminar post
+                updatePost,  // Función para actualizar post
             }}
         >
             {children}
