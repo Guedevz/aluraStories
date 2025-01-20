@@ -30,18 +30,6 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink
-                        to='/my-account'
-                        className={({ isActive}) => isActive ? activeStyle : undefined } onClick={() => setIsOpen(false)}>
-                            My Account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/sign-in'
-                        className={({ isActive}) => isActive ? activeStyle : undefined } onClick={() => setIsOpen(false)}>
-                            Sign In
-                    </NavLink>
                 </li>
                 <li>
                     <NavLink
