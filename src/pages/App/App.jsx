@@ -8,12 +8,8 @@ import Navbar from '../../components/Navbar'
 // Pages.........................
 import Home from '../Home'
 import CreatePosts from '../CreatePosts'
-import DeletePost from '../DeletePost'
-import EditPost from '../EditPost'
 import Favorites from '../Favorites'
-import MyAccount from '../MyAccount'
 import NotFound from '../NotFound'
-import SignIn from '../SignIn'
 
 
 // Styles.........................
@@ -23,11 +19,7 @@ const AppRoutes = () => {
   let routes = useRoutes ([
     { path: '/', element: <Home /> },
     { path: '/create-posts', element: <CreatePosts /> },
-    { path: '/posts/:id/delete', element: <DeletePost /> },
-    { path: '/posts/:id/edit', element: <EditPost /> },
     { path: '/favorites', element: <Favorites /> },
-    { path: '/my-account', element: <MyAccount /> },
-    { path: '/sign-in', element: <SignIn /> },
     { path: '/web-development', element: <Home /> },
     { path: '/data-science', element: <Home /> },
     { path: '/marketing', element: <Home /> },

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { PostContext } from "../../context";
 import { IoHeartSharp } from "react-icons/io5";
+import Layout from "../../components/Layout";
 
 const Favorites = () => {
     const { postFavorites, setPostFavorites } = useContext(PostContext);
@@ -15,8 +16,10 @@ const Favorites = () => {
     };
 
     return (
-        <div className="favorites-page mt-44">
-            <h1 className="text-2xl font-bold mb-6">Favorites</h1>
+        <Layout>
+            <div className='flex flex-col justify-center items-center gap-6 px-5 text-center'>
+                <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: "bold"}}>Favorites</h2>
+            </div>
             <div className="container__card">
                 {postFavorites.length > 0 ? (
                     postFavorites.map((data, index) => (
@@ -59,7 +62,7 @@ const Favorites = () => {
                     <p className="text-gray-500">No favorites added yet.</p>
                 )}
             </div>
-        </div>
+        </Layout>
     );
 };
 
