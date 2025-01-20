@@ -14,8 +14,6 @@ const CreatePosts = () => {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
 
     const tags = [
         'Web Development',
@@ -37,8 +35,6 @@ const CreatePosts = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setError('');
-        setSuccess('');
 
         try {
             const response = await fetch('https://6787dbc8c4a42c9161088673.mockapi.io/api/v1/posts', {
@@ -53,22 +49,30 @@ const CreatePosts = () => {
                 throw new Error('Error saving data');
             }
 
-            const data = await response.json();
-            setSuccess('Post successfully created!');
-            console.log('Respuesta API:', data);
+            if (response.ok) {
+                const data = await response.json();
 
-            // Resetear el formulario
-            setFormData({
-                title: '',
-                description: '',
-                info: '',
-                tag: '',
-                date: '',
-                read: '',
-                image: ''
-            });
+                // Mensaje de éxito con alert
+                alert('Post successfully created!');
+                console.log('Respuesta API:', data);
+
+                // Resetear el formulario
+                setFormData({
+                    title: '',
+                    description: '',
+                    info: '',
+                    tag: '',
+                    date: '',
+                    read: '',
+                    image: ''
+                });
+            } else {
+                // Si la respuesta no es ok, lanza un error
+                throw new Error('Failed to create post');
+            }
         } catch (error) {
-            setError(error.message || 'There was an error saving the data');
+            // Mensaje de error con alert
+            alert(error.message || 'There was an error saving the data');
         } finally {
             setIsSubmitting(false);
         }
@@ -188,8 +192,6 @@ const CreatePosts = () => {
                         {isSubmitting ? 'Creating...' : 'Create Post'}
                     </button>
                 </div>
-                    {error && <p className="error">{error}</p>}
-                    {success && <p className="success">{success}</p>}
             </form>
         </Layout>
     )
